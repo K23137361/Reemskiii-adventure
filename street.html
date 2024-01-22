@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: rgb(18, 96, 180);
+        background-image: url('images/street.jpeg');
+        background-repeat: no-repeat;
+        background-size: 100vh 100vh;
+      }
+
+      #container {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin-top: 50px;
+      }
+
+      #picture {
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+        margin: 10px;
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        background: url('images/talking-cat2.gif') center/cover;
+        border-style: solid;
+        border-width: 6px;
+        border-color: rgb(88, 49, 98);
+        z-index: 9999999;
+      }
+
+      #chatBubble {
+        position: absolute;
+        bottom: 10px;
+        left: 122px;
+        width: 205px;
+        height: 95px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        padding-right: 0px;
+        padding-left: 38px;
+        background-color: rgb(241, 239, 234);
+        border-style: solid;
+        border-width: 6px;
+        border-color: rgb(88, 49, 98);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 115px;
+        margin-top: 165px;
+      }
+
+
+      .button {
+        padding: 12px;
+        font-size: 20px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        cursor: pointer;
+        border-style:groove;
+        border-color: bisque;
+        background-color: rgb(88, 49, 98);
+        color: white;
+        margin-bottom: 50px;
+      }
+      
+      .button:active {
+        background-color: rgb(178, 133, 189);
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="buttons">
+      <a href="park.html" class="button">Sakura Park</a>
+      <a href="river.html" class="button">Riverside</a>
+      <a href="town_center.html" class="button">Town Center</a>
+    </div>
+    <div id="container">
+      <div id="picture"></div>
+      <div id="chatBubble"><span id="speakerName"></span><br><span id="typedText"></span></div>
+    </div>
+
+    <script>
+      // Function to simulate typing animation
+      function typeText(element, text, speed) {
+        let index = 0;
+        const typingInterval = setInterval(function() {
+          element.innerHTML += text[index++];
+          if (index === text.length) {
+            clearInterval(typingInterval);
+          }
+        }, speed);
+      }
+    
+      window.onload = function() {
+        // Initial text and speaker's name
+        var initialName = "Mr. Baha Baha";
+        var initialText = "It's so nice outside meow, I even found a snail to munch on meow. Where should we meow go now?";
+        var speakerNameElement = document.getElementById('speakerName');
+        var typedTextElement = document.getElementById('typedText');
+    
+        // Start typing animation for speaker's name and initial text
+        speakerNameElement.innerHTML = '<strong>' + initialName + '</strong>';
+        typeText(typedTextElement, initialText, 50);
+      };
+    </script>
+    
+  </body>
+</html>
